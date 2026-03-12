@@ -1,0 +1,537 @@
+
+/* Importing Poppins font*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+/*
+   Resets default browser margins and padding
+   uses border-box sizing
+   so padding and borders are included in element width/height */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Sets the base font, dark background color, light text, and comfortable line height for the entire page */
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #0a0c10;
+  color: #f0f0f0;
+  line-height: 1.6;
+}
+
+/* Changes UI of hyperlinks and uses inheritence from parent text */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Makes all images block-level elements and prevents them from overflowing their containers */
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/*
+   ANCHORED navigation bar that stays at the top*/
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 24px;
+  background: #0e1014;
+  border-bottom: 1px solid #1c1f26;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+/* Logo image in the navbar, inverted to white using a CSS filter */
+.nav-logo-img {
+  height: 28px;
+  width: auto;
+  filter: invert(1);
+}
+
+/* Horizontal list of navigation links */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 24px;
+}
+
+/* Nav link text styling and smooth hover transition */
+.nav-links a {
+  font-size: 0.85rem;
+  color: #8a8f99;
+  transition: color 0.2s;
+}
+
+/* Nav links turn white on hover */
+.nav-links a:hover {
+  color: #ffffff;
+}
+
+/* Hamburger menu button hidden on desktop, shown on smaller screens via media queries */
+.menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  color: #e5e9f0;
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+
+/*Styling the hero elements for the images and background*/
+
+.hero {
+  position: relative;
+  text-align: center;
+  padding: 100px 24px 80px;
+  overflow: hidden;
+}
+
+/* Background image that fills the entire hero area with low opacity
+   to create a subtle backdrop behind the text */
+.hero-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.18;
+}
+
+/* Text content stacked vertically on top of the background image */
+.hero-text {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Square avatar image with rounded corners and a blue accent border */
+.avatar {
+  width: 180px;
+  height: 180px;
+  border-radius: 16px;
+  object-fit: cover;
+  object-position: center 20%;
+  border: 3px solid #5b7a9d;
+}
+
+/* Large main heading in white with wide letter spacing */
+.hero-text h1 {
+  font-size: 3.5rem;
+  letter-spacing: 0.1em;
+  color: #ffffff;
+}
+
+/* Album name subtitle in the muted blue accent color */
+.subtitle {
+  font-size: 1rem;
+  letter-spacing: 0.35em;
+  color: #7a9bb5;
+  font-weight: 600;
+}
+
+/* Small muted tagline below the subtitle */
+.tagline {
+  font-size: 0.8rem;
+  color: #6b7280;
+}
+
+/*
+   Each section is centered on the page with a max width of 720px
+   to keep content readable and well-spaced on larger screens. */
+
+.section {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 24px 48px;
+}
+
+/* Section heading label — small uppercase text in the blue accent color
+   with a border underneath for visual separation */
+.section-title {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #7a9bb5;
+  margin-bottom: 14px;
+  border-bottom: 1px solid #1c1f26;
+  padding-bottom: 6px;
+}
+
+/*
+   Clickable card used for the album section — displays a full-width image on top
+   with text info, a badge, and a call-to-action button below. Lifts up on hover. */
+
+.promo-card {
+  display: block;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #12141a;
+  border: 1px solid #1c1f26;
+  transition: transform 0.2s;
+}
+
+/* Slight rise effect when hovering over the promo card */
+.promo-card:hover {
+  transform: translateY(-3px);
+}
+
+/* Album cover image that spans the full width of the card */
+.promo-img {
+  width: 100%;
+}
+
+/* Text area below the promo image — stacks badge, title, description, and button */
+.promo-info {
+  padding: 20px 24px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.promo-info h3 {
+  font-size: 1.6rem;
+  letter-spacing: 0.05em;
+}
+
+.promo-info p {
+  font-size: 0.8rem;
+  color: #6b7280;
+}
+
+/* Small pill-shaped label used to tag cards (e.g. "Classic Album • 2016") */
+.badge {
+  font-size: 0.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  background: #5b7a9d;
+  color: #ffffff;
+  padding: 3px 10px;
+  border-radius: 50px;
+  width: fit-content;
+}
+
+/* White call-to-action button used inside promo cards — darkens on hover */
+.btn {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 10px 24px;
+  background: #ffffff;
+  color: #0a0c10;
+  font-size: 0.82rem;
+  font-weight: 600;
+  border-radius: 8px;
+  width: fit-content;
+  transition: background 0.2s;
+}
+
+.btn:hover {
+  background: #d1d5db;
+}
+
+/* 
+   Displays the top tracks in a vertical list with track numbers, names,
+   featured artists, and embedded Spotify preview players between each track. */
+
+/* Container for the entire track list with rounded corners and dark background */
+.track-list {
+  background: #12141a;
+  border-radius: 10px;
+  border: 1px solid #1c1f26;
+  overflow: hidden;
+}
+
+/* Individual track row — displays the track number and name side by side */
+.track {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 20px;
+  border-bottom: 1px solid #1c1f26;
+}
+
+/* Removes the bottom border from the last track to avoid a double border */
+.track:last-child {
+  border-bottom: none;
+}
+
+/* Subtle background highlight when hovering over a track row */
+.track:hover {
+  background: #1a1d24;
+}
+
+/* Track number displayed in blue accent color with a fixed minimum width for alignment */
+.track-num {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #5b7a9d;
+  min-width: 22px;
+}
+
+.track-name {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.track-feat {
+  font-size: 0.7rem;
+  color: #6b7280;
+}
+
+/* Embedded Spotify iframe player — compact 80px height shown between tracks */
+.track-preview {
+  width: 100%;
+  height: 80px;
+  border-bottom: 1px solid #1c1f26;
+}
+
+/* Removes bottom border from the last preview to avoid double borders */
+.track-preview:last-child {
+  border-bottom: none;
+}
+
+/*
+   Promotional card for the Summer Sixteen Tour — similar layout to the album
+   promo card with a full-width image, badge, title, tagline, and description. */
+
+/* Tour card container with rounded corners and dark background */
+.tour-card {
+  display: block;
+  background: #12141a;
+  border: 1px solid #1c1f26;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* Full-width tour image displayed at the top of the card */
+.tour-img {
+  width: 100%;
+}
+
+/* Text content area below the tour image */
+.tour-body {
+  padding: 20px 24px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.tour-body h3 {
+  font-size: 1.6rem;
+  letter-spacing: 0.08em;
+  color: #ffffff;
+}
+
+/* Tour tagline showing the co-headliners and region in blue accent text */
+.tour-tagline {
+  font-size: 0.85rem;
+  color: #7a9bb5;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+/* Tour description paragraph in muted gray */
+.tour-desc {
+  color: #6b7280;
+  line-height: 1.7;
+}
+
+/* Emphasized album name within the tour description highlighted in blue */
+.tour-desc em {
+  color: #7a9bb5;
+  font-style: italic;
+}
+
+/*
+   Stacked list of clickable link cards used for social media and external links.
+   Each button has an SVG icon on the left, label text, and an arrow on the right. */
+
+/* Vertical stack of link buttons with consistent spacing */
+.link-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Individual link button — dark card with icon, text, and arrow in a row */
+.link-btn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 20px;
+  background: #12141a;
+  border: 1px solid #1c1f26;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #f0f0f0;
+  transition: background 0.2s;
+}
+
+/* SVG icons inside link buttons colored with the blue accent */
+.link-btn svg {
+  flex-shrink: 0;
+  color: #5b7a9d;
+}
+
+/* Subtle background change on hover for link buttons */
+.link-btn:hover {
+  background: #1a1d24;
+}
+
+/* Right-arrow indicator pushed to the far right of each link button */
+.arrow {
+  margin-left: auto;
+  color: #6b7280;
+}
+
+/* 
+   Centered footer at the bottom of the page with the site title,
+   copyright info, and image attribution credits. */
+
+.footer {
+  text-align: center;
+  padding: 48px 24px 36px;
+  border-top: 1px solid #1c1f26;
+  margin-top: 24px;
+}
+
+/* Footer heading — bold white text with wide letter spacing */
+.footer-title {
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: #ffffff;
+  margin-bottom: 6px;
+}
+
+/* Image attribution text displayed prominently in the footer */
+#footer-attribution {
+    font-size: 1rem;
+    color: rgb(225, 220, 220);
+}
+/* Copyright line in small muted text */
+.footer-copy {
+  font-size: 0.68rem;
+  color: #6b7280;
+}
+
+/* Small credit line for image source attributions */
+.footer-credit {
+  font-size: 0.58rem;
+  color: #4b5059;
+  margin-top: 4px;
+}
+
+/* 
+   At 768px and below, the horizontal nav links are hidden and replaced
+   by a hamburger menu. Hero and section sizes scale down for tablets. */
+
+@media (max-width: 768px) {
+  /* Show the hamburger menu button on tablet and mobile */
+  .menu-btn {
+    display: block;
+  }
+
+  /* Nav links become a vertical dropdown menu positioned below the navbar.
+     Hidden by default, toggled open via JavaScript adding the .open class. */
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #0e1014;
+    border-bottom: 1px solid #1c1f26;
+    padding: 12px 24px;
+    gap: 12px;
+  }
+
+  /* When the .open class is added by JavaScript, the nav links become visible */
+  .nav-links.open {
+    display: flex;
+  }
+
+  /* Reduce hero padding on tablets */
+  .hero {
+    padding: 70px 20px 50px;
+  }
+
+  /* Scale down the hero heading */
+  .hero-text h1 {
+    font-size: 2.6rem;
+  }
+
+  /* Smaller avatar on tablet screens */
+  .avatar {
+    width: 140px;
+    height: 140px;
+  }
+
+  /* Tighter section padding on tablets */
+  .section {
+    padding: 0 20px 36px;
+  }
+}
+
+/* Reduces sizes and padding more for small phone screens. */
+
+@media (max-width: 480px) {
+  .hero {
+    padding: 50px 16px 36px;
+  }
+
+  .hero-text h1 {
+    font-size: 2rem;
+  }
+
+  .subtitle {
+    font-size: 0.85rem;
+    letter-spacing: 0.2em;
+  }
+
+  .avatar {
+    width: 120px;
+    height: 120px;
+  }
+
+  .section {
+    padding: 0 16px 28px;
+  }
+
+  .promo-info {
+    padding: 16px 16px 20px;
+  }
+
+  .promo-info h3 {
+    font-size: 1.3rem;
+  }
+
+  .tour-body {
+    padding: 16px;
+  }
+
+  .tour-body h3 {
+    font-size: 1.2rem;
+  }
+
+  .link-btn {
+    padding: 14px 16px;
+    font-size: 0.85rem;
+  }
+
+  .footer {
+    padding: 36px 16px 28px;
+  }
+}
