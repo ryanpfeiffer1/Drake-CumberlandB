@@ -1,6 +1,6 @@
 # Drake — Views
 
-A fan website for Drake's 2016 album *Views*, built with HTML, CSS, and JavaScript.
+A website for Drake's 2016 album *Views*, built with HTML, CSS, and JavaScript.
 
 ## Features
 
